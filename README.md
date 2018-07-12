@@ -4,7 +4,7 @@
 **Date**: 12/07/2018
 **Mission**: Solve SG Flood problem
 
-## DETAIL
+## Details
 
 * Input: 
     * {String} S - with length = N (k x k flood)

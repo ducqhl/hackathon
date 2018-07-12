@@ -3,10 +3,11 @@
 const str_flood_data = "1100000110000001100000001111000011000010100000011";
 
 var flood_data = parseFloodData(str_flood_data);
-var flood_data = normalizeFloodData(flood_data);
+flood_data = normalizeFloodData(flood_data);
+
 console.log(flood_data);
 
-var maxAreaID = getBigAreaFlood(flood_data);
+var maxAreaID = getBigestAreaFlood(flood_data);
 console.log(maxAreaID);
 
 /**
@@ -28,12 +29,11 @@ function parseFloodData(str_flood_data) {
  * get Big Area Flood
  * @param {Array[]} flood_data 
  */
-function getBigAreaFlood(flood_data) {
+function getBigestAreaFlood(flood_data) {
     var maxAreaSum = flood_data[0].reduce((a, b) => parseInt(a) + parseInt(b), 0);
     var maxAreaID = 0;
     flood_data.forEach((item, idx) => {
         let sum = item.reduce((a, b) => parseInt(a) + parseInt(b), 0);
-        // console.log(sum);
         if (sum > maxAreaSum) {
             maxAreaID = idx;
             maxAreaSum = sum;

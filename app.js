@@ -7,22 +7,21 @@ flood_data = normalizeFloodData(flood_data);
 
 console.log(flood_data);
 
-var maxAreaID = getBigestAreaFlood(flood_data);
-console.log(maxAreaID);
+var max_area_id = getBigestAreaFlood(flood_data);
+console.log(max_area_id);
 
 /**
  * Parse plaint string to struct data
  * @param {String} str_flood_data 
  */
 function parseFloodData(str_flood_data) {
-    const len = str_flood_data.length;
-    const n_flood_point = Math.sqrt(len);
-    const floodData = [];
+    const n_flood_point = Math.sqrt(str_flood_data.length);
+    const flood_data = [];
     while (str_flood_data.length) {
-        floodData.push(str_flood_data.slice(0, n_flood_point).split(''));
+        flood_data.push(str_flood_data.slice(0, n_flood_point).split(''));
         str_flood_data = str_flood_data.substring(n_flood_point);
     }
-    return floodData;
+    return flood_data;
 }
 
 /**
@@ -30,17 +29,17 @@ function parseFloodData(str_flood_data) {
  * @param {Array[]} flood_data 
  */
 function getBigestAreaFlood(flood_data) {
-    var maxAreaSum = flood_data[0].reduce((a, b) => parseInt(a) + parseInt(b), 0);
-    var maxAreaID = 0;
+    var max_area_sum = flood_data[0].reduce((a, b) => parseInt(a) + parseInt(b), 0);
+    var max_area_id = 0;
     flood_data.forEach((item, idx) => {
         let sum = item.reduce((a, b) => parseInt(a) + parseInt(b), 0);
-        if (sum > maxAreaSum) {
-            maxAreaID = idx;
-            maxAreaSum = sum;
+        if (sum > max_area_sum) {
+            max_area_id = idx;
+            max_area_sum = sum;
         }
     });
 
-    return maxAreaID;
+    return max_area_id;
 }
 
 /**

@@ -6,7 +6,7 @@
 
 ## DETAIL
 
-*Input: 
+* Input: 
     * {String} S - with length = N (k x k flood)
     * EX: "1100000110000001100000001111000011000010100000011"
 * Flood Area: 
